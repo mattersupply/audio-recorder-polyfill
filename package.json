@@ -1,5 +1,5 @@
 {
-  "name": "audio-recorder-polyfill",
+  "name": "@mattersupply/audio-recorder-polyfill",
   "version": "0.3.6",
   "description": "MediaRecorder polyfill to record audio in Edge and Safari",
   "keywords": [
@@ -25,7 +25,7 @@
   },
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "license": "MIT",
-  "repository": "ai/audio-recorder-polyfill",
+  "repository": "mattersupply/audio-recorder-polyfill",
   "devDependencies": {
     "@logux/eslint-config": "^36.1.2",
     "@size-limit/preset-small-lib": "^4.4.5",

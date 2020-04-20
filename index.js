@@ -72,20 +72,28 @@ class MediaRecorder {
    *   recorder.start()
    * })
    */
-  start (timeslice) {
+  start (timeslice, _context = null, _processor = null) {
     if (this.state !== 'inactive') {
       return this.em.dispatchEvent(error('start'))
     }
 
     this.state = 'recording'
 
-    if (!context) {
+    if (_context) {
+      context = _context
+      if (!_processor) {
+        processor = context.createScriptProcessor(2048, 1, 1)
+      }
+    } else if (!context) {
       context = new AudioContext()
     }
+
     this.clone = this.stream.clone()
     this.input = context.createMediaStreamSource(this.clone)
 
-    if (!processor) {
+    if (_processor) {
+      processor = _processor
+    } else if (!processor) {
       processor = context.createScriptProcessor(2048, 1, 1)
     }
 
